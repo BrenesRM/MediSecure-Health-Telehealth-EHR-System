@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\wwwroot\\app.js",
+      "PackagePath": "staticwebassets\\app.js"
+    },
+    {
+      "Id": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\wwwroot\\style.css",
+      "PackagePath": "staticwebassets\\style.css"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MediSecureApi.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.MediSecureApi.props",
+      "PackagePath": "build\\MediSecureApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.MediSecureApi.props",
+      "PackagePath": "buildMultiTargeting\\MediSecureApi.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.MediSecureApi.props",
+      "PackagePath": "buildTransitive\\MediSecureApi.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

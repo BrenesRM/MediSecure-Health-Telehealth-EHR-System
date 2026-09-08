@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediSecure - Telehealth & EHR System (Threat Modeling Target)</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header>
+      <div class="logo-area">
+        <div class="logo-icon">🩺</div>
+        <div class="logo-text">
+          <h1>MediSecure Telehealth & EHR Portal</h1>
+          <p>CS 340 Secure Software Development • Threat Modeling Target System</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span class="badge-tag">⚠️ Vulnerable Lab Mode</span>
+        <a href="/swagger" target="_blank" class="btn-swagger">
+          <span>⚡ OpenAPI / Swagger UI</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Role Switcher & Auth Banner -->
+    <div class="auth-bar">
+      <div class="user-status">
+        <div class="status-dot"></div>
+        <div>
+          <span>Logged in as: <strong id="currentUserLabel">Alice Smith (Patient #4)</strong></span>
+          <span id="roleBadge" class="data-badge badge-patient" style="margin-left: 8px;">Patient</span>
+        </div>
+      </div>
+      <div class="quick-login-pills">
+        <span style="font-size: 12px; color: var(--text-muted); margin-right: 4px;">Switch Persona:</span>
+        <button class="pill-btn active" onclick="switchUser('alice')">Alice (Patient)</button>
+        <button class="pill-btn" onclick="switchUser('bob')">Bob (Patient)</button>
+        <button class="pill-btn" onclick="switchUser('doctor')">Dr. House (Doctor)</button>
+        <button class="pill-btn" onclick="switchUser('admin')">SysAdmin (Admin)</button>
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="main-grid">
+      <!-- Left Column: Clinical & Patient Data Views -->
+      <div class="card">
+        <div class="card-title">
+          <div class="icon-title">
+            <span>📋</span>
+            <span>Clinical Records & Operations</span>
+          </div>
+          <button class="btn-action" onclick="refreshCurrentTab()" style="padding: 4px 10px; font-size: 12px;">🔄 Refresh</button>
+        </div>
+
+        <div class="tabs">
+          <button class="tab-btn active" onclick="setTab('records')">Medical Records</button>
+          <button class="tab-btn" onclick="setTab('appointments')">Appointments</button>
+          <button class="tab-btn" onclick="setTab('labs')">Lab Results</button>
+          <button class="tab-btn" onclick="setTab('profile')">My Profile</button>
+        </div>
+
+        <!-- Records View -->
+        <div id="recordsView" class="data-list">
+          <div class="data-item">Loading patient records...</div>
+        </div>
+
+        <!-- Appointments View -->
+        <div id="appointmentsView" class="data-list" style="display: none;">
+          <div class="data-item">Loading appointments...</div>
+        </div>
+
+        <!-- Labs View -->
+        <div id="labsView" class="data-list" style="display: none;">
+          <div class="data-item">Loading lab results...</div>
+        </div>
+
+        <!-- Profile View -->
+        <div id="profileView" class="data-list" style="display: none;">
+          <div class="data-item">Loading profile...</div>
+        </div>
+      </div>
+
+      <!-- Right Column: Threat Matrix & Exploit Demonstrator -->
+      <div class="card">
+        <div class="card-title">
+          <div class="icon-title">
+            <span>🎯</span>
+            <span>STRIDE Threat Demonstrator & Inspector</span>
+          </div>
+          <span style="font-size: 12px; color: var(--text-muted);">Click to trigger threat vector</span>
+        </div>
+
+        <div class="threat-grid">
+          <!-- TH-01: Spoofing -->
+          <div class="threat-card critical">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong>TH-01: JWT Spoofing (alg: none)</strong>
+              <span class="threat-tag">SPOOFING • CWE-287</span>
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted);">
+              Forge an unsigned administrator token with algorithm "none" and access administrative telemetry.
+            </p>
+            <button class="btn-action" onclick="triggerSpoofingExploit()">⚡ Execute Token Forgery</button>
+          </div>
+
+          <!-- TH-02: Tampering / Mass Assignment -->
+          <div class="threat-card critical">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong>TH-02: Mass Assignment (Elevate to Admin)</strong>
+              <span class="threat-tag">TAMPERING • CWE-915</span>
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted);">
+              Inject <code>"Role": "Admin", "IsAdmin": true</code> directly into <code>PUT /api/v1/users/profile</code>.
+            </p>
+            <button class="btn-action" onclick="triggerMassAssignmentExploit()">⚡ Tamper User Profile Role</button>
+          </div>
+
+          <!-- TH-05: Information Disclosure / BOLA IDOR -->
+          <div class="threat-card critical">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong>TH-05: BOLA / IDOR (Cross-Patient Access)</strong>
+              <span class="threat-tag">INFO DISCLOSURE • CWE-639</span>
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted);">
+              As Alice (Patient #4), read Bob's (Patient #5) and Charlie's (Patient #6) private diagnoses via <code>/api/v1/records/patient/{id}</code>.
+            </p>
+            <button class="btn-action" onclick="triggerIdorExploit()">⚡ Query Cross-Patient Records</button>
+          </div>
+
+          <!-- TH-08: Elevation of Privilege / BFLA -->
+          <div class="threat-card critical">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong>TH-08: BFLA (Full Hospital Database Dump)</strong>
+              <span class="threat-tag">ELEVATION • CWE-285</span>
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted);">
+              Call administrative <code>/api/v1/admin/export-database</code> with a standard patient session.
+            </p>
+            <button class="btn-action btn-danger" onclick="triggerBflaExploit()">⚡ Trigger Admin Data Dump</button>
+          </div>
+
+          <!-- TH-06: Excessive Data Exposure -->
+          <div class="threat-card">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+              <strong>TH-06: Excessive Data Exposure (SSN & Hashes)</strong>
+              <span class="threat-tag">INFO DISCLOSURE • CWE-213</span>
+            </div>
+            <p style="font-size: 12px; color: var(--text-muted);">
+              Fetch all users via <code>/api/v1/users</code> to view exposed SSNs and password hashes.
+            </p>
+            <button class="btn-action" onclick="triggerExcessiveDataExploit()">⚡ Leak User PII & Credential Hashes</button>
+          </div>
+        </div>
+
+        <!-- Live Response Inspector -->
+        <div style="margin-top: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+            <strong style="font-size: 13px;">📡 Live API Response Inspector:</strong>
+            <span id="responseStatus" style="font-size: 11px; color: var(--accent-green);">HTTP 200 OK</span>
+          </div>
+          <pre id="apiResponseBox" class="response-box">{ "status": "Ready to inspect API traffic..." }</pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
