@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MediSecureApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7041049a2aa7507808814805c4cbc5a2b888274a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d4e487f39b991d131972b486fd46a625f0ca52b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("MediSecureApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MediSecureApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

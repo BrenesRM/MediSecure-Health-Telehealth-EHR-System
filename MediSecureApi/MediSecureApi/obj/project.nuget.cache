@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "POwaVOto87s=",
+  "dgSpecHash": "lX00qWPxfZM=",
   "success": true,
-  "projectFilePath": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\MediSecureApi.csproj",
+  "projectFilePath": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\MediSecureApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\brenesrm\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\brenesrm\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\8.0.8\\microsoft.aspnetcore.authentication.jwtbearer.8.0.8.nupkg.sha512",

@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MediSecureApi.Data;
+using MediSecureApi.DTOs;
 using MediSecureApi.Models;
 using MediSecureApi.Services;
 
@@ -60,16 +61,12 @@ public class LabsController : ControllerBase
     /// </summary>
     [HttpPost("upload")]
     [Consumes("multipart/form-data")]
-    public async Task<IActionResult> UploadLabResult(
-        [FromForm] int patientId,
-        [FromForm] string testName,
-        [FromForm] string? resultSummary,
-        [FromForm] IFormFile file)
+    public async Task<IActionResult> UploadLabResult([FromForm] UploadLabResultRequest request)
     {
         var principal = GetCurrentPrincipal();
         if (principal == null) return Unauthorized(new { error = "Authentication required." });
 
-        if (file == null || file.Length == 0)
+        if (request.File == null || request.File.Length == 0)
         {
             return BadRequest(new { error = "No file uploaded." });
         }
@@ -84,19 +81,19 @@ public class LabsController : ControllerBase
             Directory.CreateDirectory(uploadsFolder);
         }
 
-        var destinationPath = Path.Combine(uploadsFolder, file.FileName);
+        var destinationPath = Path.Combine(uploadsFolder, request.File.FileName);
 
         using (var stream = new FileStream(destinationPath, FileMode.Create))
         {
-            await file.CopyToAsync(stream);
+            await request.File.CopyToAsync(stream);
         }
 
         var labResult = new LabResult
         {
-            PatientId = patientId,
-            TestName = testName,
-            ResultSummary = resultSummary ?? "Diagnostic file uploaded.",
-            OriginalFileName = file.FileName,
+            PatientId = request.PatientId,
+            TestName = request.TestName,
+            ResultSummary = request.ResultSummary ?? "Diagnostic file uploaded.",
+            OriginalFileName = request.File.FileName,
             FilePath = Path.GetRelativePath(_env.ContentRootPath, destinationPath),
             UploadedAt = DateTime.UtcNow,
             UploadedBy = uploaderName

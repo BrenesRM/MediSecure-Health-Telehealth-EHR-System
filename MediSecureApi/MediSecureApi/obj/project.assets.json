@@ -3314,14 +3314,16 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\MediSecureApi.csproj",
+      "projectUniqueName": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\MediSecureApi.csproj",
       "projectName": "MediSecureApi",
-      "projectPath": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\MediSecureApi.csproj",
+      "projectPath": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\MediSecureApi.csproj",
       "packagesPath": "C:\\Users\\brenesrm\\.nuget\\packages\\",
-      "outputPath": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\obj\\",
+      "outputPath": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\nuget.config"
+        "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\NuGet.Config",
+        "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\NuGet.Config",
+        "C:\\Users\\brenesrm\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

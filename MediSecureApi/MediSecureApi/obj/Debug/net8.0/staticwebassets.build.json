@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "a/HBBtt//Nj40qgGoujYf3KhHeMRi+0U6Rfo1TOV4bQ=",
+  "Hash": "iIrTUtBPDOfDVUMNhPVJvXeh0WYPw5EHnCHVLW1yLxg=",
   "Source": "MediSecureApi",
   "BasePath": "_content/MediSecureApi",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "MediSecureApi\\wwwroot",
       "Source": "MediSecureApi",
-      "ContentRoot": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\wwwroot\\",
+      "ContentRoot": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\wwwroot\\",
       "BasePath": "_content/MediSecureApi",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\wwwroot\\app.js",
+      "Identity": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\wwwroot\\app.js",
       "SourceId": "MediSecureApi",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\wwwroot\\",
+      "ContentRoot": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\wwwroot\\",
       "BasePath": "_content/MediSecureApi",
       "RelativePath": "app.js",
       "AssetKind": "All",
@@ -36,10 +36,10 @@
       "OriginalItemSpec": "wwwroot\\app.js"
     },
     {
-      "Identity": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\wwwroot\\index.html",
+      "Identity": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\wwwroot\\index.html",
       "SourceId": "MediSecureApi",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\wwwroot\\",
+      "ContentRoot": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\wwwroot\\",
       "BasePath": "_content/MediSecureApi",
       "RelativePath": "index.html",
       "AssetKind": "All",
@@ -55,10 +55,10 @@
       "OriginalItemSpec": "wwwroot\\index.html"
     },
     {
-      "Identity": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\wwwroot\\style.css",
+      "Identity": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\wwwroot\\style.css",
       "SourceId": "MediSecureApi",
       "SourceType": "Discovered",
-      "ContentRoot": "D:\\TrabajoBCCR\\Personal\\Servicios-de-Profesor\\ULACIT\\CS 340 Secure Software Development\\Class Material\\Proyects\\Proyect_1\\MediSecureApi\\MediSecureApi\\wwwroot\\",
+      "ContentRoot": "D:\\TrabajoBCCR\\Temp\\MediSecure-Health-Telehealth-EHR-System\\MediSecureApi\\MediSecureApi\\wwwroot\\",
       "BasePath": "_content/MediSecureApi",
       "RelativePath": "style.css",
       "AssetKind": "All",

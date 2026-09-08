@@ -40,29 +40,31 @@ Before running the application on your local machine, ensure you have the follow
 ## 2. Project Architecture & File Layout
 
 ```
-Proyect_1/
-├── MediSecureApi/
-│   ├── MediSecureApi.sln                    # Visual Studio 2022 Solution
-│   ├── nuget.config                         # NuGet package source configuration
-│   ├── MediSecureApi/
-│   │   ├── MediSecureApi.csproj             # .NET 8 Web API Project File
-│   │   ├── Program.cs                       # App entry point, middleware, DI, Swagger, Seed
-│   │   ├── appsettings.json                 # Connection strings, JWT settings, debug flags
-│   │   ├── Models/                          # Domain models (User, MedicalRecord, Appointment, LabResult)
-│   │   ├── DTOs/                            # Data Transfer Objects (Auth, Users, Records, Appointments)
-│   │   ├── Data/                            # EF Core SQLite DbContext & automatic DbInitializer
-│   │   ├── Services/                        # JwtService (with TH-01 algorithm 'none' flaw)
-│   │   ├── Controllers/                     # API Controllers (Auth, Users, Records, Admin, Labs, Webhooks)
-│   │   ├── uploads/                         # Storage directory for diagnostic lab files
-│   │   └── wwwroot/                         # Interactive Dark-Mode Web Dashboard & STRIDE Demonstrator
-│   │       ├── index.html                   # Single-Page Application Portal
-│   │       ├── style.css                    # Modern glassmorphic styles
-│   │       └── app.js                       # Frontend client logic & live API inspector
-│   └── README.md                            # Solution quickstart
-├── docs/
-│   ├── THREAT_MODELING_WORKBOOK.md          # Complete reference workbook (DFD 0/1, STRIDE, DREAD, Mitigations)
-│   └── STUDENT_QUICKSTART.md                # 2-minute student guide for Visual Studio
-└── README.md                                # This local configuration guide
+MediSecure-Health-Telehealth-EHR-System/    # (Root folder of your project copy / repo)
+├── MediSecureApi/                          # Visual Studio Solution Directory
+│   ├── MediSecureApi.sln                  # Visual Studio 2022 Solution file
+│   ├── nuget.config                       # NuGet package source configuration
+│   ├── README.md                          # Solution quickstart
+│   └── MediSecureApi/                     # Web API Project Directory
+│       ├── MediSecureApi.csproj           # .NET 8 Web API Project File
+│       ├── Program.cs                     # App entry point, middleware, DI, Swagger, Seed
+│       ├── appsettings.json               # Connection strings, JWT settings, debug flags
+│       ├── Models/                        # Domain models (User, MedicalRecord, Appointment, LabResult)
+│       ├── DTOs/                          # Data Transfer Objects (Auth, Users, Records, Appointments)
+│       ├── Data/                          # EF Core SQLite DbContext & automatic DbInitializer
+│       ├── Services/                      # JwtService (with TH-01 algorithm 'none' flaw)
+│       ├── Controllers/                   # API Controllers (Auth, Users, Records, Admin, Labs, Webhooks)
+│       ├── uploads/                       # Storage directory for diagnostic lab files
+│       └── wwwroot/                       # Interactive Dark-Mode Web Dashboard & STRIDE Demonstrator
+│           ├── index.html                 # Single-Page Application Portal
+│           ├── style.css                  # Modern glassmorphic styles
+│           └── app.js                     # Frontend client logic & live API inspector
+├── docs/                                  # Threat Modeling & Deliverable 1 Documentation
+│   ├── THREAT_MODELING_WORKBOOK.md        # Complete reference workbook (DFD 0/1, STRIDE, DREAD, Mitigations)
+│   └── STUDENT_QUICKSTART.md              # 2-minute student guide for Visual Studio
+├── nuget.config                           # Root NuGet configuration
+├── Threat Modeling and Vulnerability Analysis - Week 4.rtf
+└── README.md                              # This local configuration guide
 ```
 
 ---
@@ -73,11 +75,11 @@ Proyect_1/
 
 1. **Open the Solution**:
    - Open Visual Studio 2022.
-   - Click **Open a project or solution**.
-   - Navigate to `Proyect_1/MediSecureApi/` and select **`MediSecureApi.sln`**.
+   - Click **Open a project or solution** (or `File` → `Open` → `Project/Solution...`).
+   - Navigate to your local copy of the project and open **`MediSecureApi/MediSecureApi.sln`** (e.g., `<your-folder>/MediSecureApi/MediSecureApi.sln`).
 
 2. **Verify Startup Project**:
-   - In the **Solution Explorer** panel (right side), confirm that **`MediSecureApi`** is bold (set as Startup Project). If not, right-click `MediSecureApi` and select **Set as Startup Project**.
+   - In the **Solution Explorer** panel (right side), confirm that **`MediSecureApi`** is set as the Startup Project (displayed in **bold**). If not, right-click `MediSecureApi` and select **Set as Startup Project**.
 
 3. **Build the Solution**:
    - In the top menu, click **Build** → **Build Solution** (or press `Ctrl + Shift + B`).
@@ -93,9 +95,12 @@ Proyect_1/
 
 ### Method B: .NET CLI / PowerShell / Terminal
 
-1. **Open your Terminal / PowerShell** and navigate to the project directory:
+You can run the project either from the **Repository Root** or by navigating into the **Project Directory**.
+
+#### Option 1: Running from the Repository Root (Where this README is located)
+1. **Open your Terminal / PowerShell** and navigate to your project copy:
    ```powershell
-   cd "d:\TrabajoBCCR\Personal\Servicios-de-Profesor\ULACIT\CS 340 Secure Software Development\Class Material\Proyects\Proyect_1"
+   cd /path/to/your/copy/of/MediSecure-Health-Telehealth-EHR-System
    ```
 
 2. **Restore Dependencies**:
@@ -113,6 +118,17 @@ Proyect_1/
    dotnet run --project MediSecureApi/MediSecureApi/MediSecureApi.csproj
    ```
 
+#### Option 2: Running directly from the Web API Project Folder
+1. **Navigate directly into the inner project directory**:
+   ```powershell
+   cd MediSecureApi/MediSecureApi
+   ```
+
+2. **Run the Application**:
+   ```powershell
+   dotnet run
+   ```
+
 5. **Open in Browser**:
    - Navigate to **`http://localhost:5000`** for the Interactive Web Portal.
    - Navigate to **`http://localhost:5000/swagger`** for the OpenAPI Swagger testing interface.
@@ -121,13 +137,26 @@ Proyect_1/
 
 ### Method C: Visual Studio Code
 
-1. Open VS Code: `File` → `Open Folder...` → Select `Proyect_1/MediSecureApi`.
-2. When prompted by the C# Dev Kit, select **`MediSecureApi.sln`** as the active solution.
-3. Open the integrated terminal (`Ctrl + ~`) and type:
-   ```powershell
-   dotnet run --project MediSecureApi/MediSecureApi.csproj
-   ```
-4. Open your browser at `http://localhost:5000`.
+1. **Open the Project in VS Code**:
+   - Open VS Code: `File` → `Open Folder...`
+   - Select either the **Repository Root folder** or the **`MediSecureApi`** solution folder.
+2. **Select Solution**:
+   - When prompted by the C# Dev Kit extension, select **`MediSecureApi.sln`** as the active solution.
+3. **Open Integrated Terminal** (`Ctrl + ` ` ` or ``Ctrl + ~``) and run:
+   - If you opened the **Repository Root**:
+     ```powershell
+     dotnet run --project MediSecureApi/MediSecureApi/MediSecureApi.csproj
+     ```
+   - If you opened the **`MediSecureApi/`** folder:
+     ```powershell
+     dotnet run --project MediSecureApi/MediSecureApi.csproj
+     ```
+   - If you opened the **`MediSecureApi/MediSecureApi/`** folder:
+     ```powershell
+     dotnet run
+     ```
+4. **Open in Browser**:
+   - Navigate to `http://localhost:5000` (Web Portal) or `http://localhost:5000/swagger` (Swagger API Docs).
 
 ---
 

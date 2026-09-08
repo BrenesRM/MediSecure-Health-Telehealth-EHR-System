@@ -36,3 +36,12 @@ public class UpdateAppointmentStatusRequest
     public string Status { get; set; } = "Completed"; // Scheduled, Completed, Cancelled
     public decimal? Fee { get; set; }                 // Tamperable fee
 }
+
+public class UploadLabResultRequest
+{
+    public int PatientId { get; set; }
+    public string TestName { get; set; } = string.Empty;
+    public string? ResultSummary { get; set; }
+    public IFormFile File { get; set; } = null!;
+}
+
