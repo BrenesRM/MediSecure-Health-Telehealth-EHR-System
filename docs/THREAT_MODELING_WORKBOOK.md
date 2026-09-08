@@ -107,7 +107,7 @@ graph TD
     end
 
     %% Data Flows
-    UserClient -->|DF-01: Login Request (Email, Pass)| AuthController
+    UserClient -->|DF-01: Login Request - Email and Password| AuthController
     UserClient -->|DF-02: Bearer JWT + Profile Update| UsersController
     UserClient -->|DF-03: Bearer JWT + Record Query/Update| RecordsController
     UserClient -->|DF-04: Bearer JWT + Appointment Booking| ApptController
@@ -228,7 +228,7 @@ graph LR
         P1["Strict DTO Binding & Whitelisting"]
         P2["Object Ownership Verification Checks"]
         P3["Standardized JWT Bearer Validation (Strict HMAC-SHA256)"]
-        P4["Role-Based Policy Enforcement ([Authorize(Roles='Admin')])"]
+        P4["Role-Based Policy Enforcement: Authorize(Roles = 'Admin')"]
     end
 
     subgraph Detective["2. Detective Controls"]
